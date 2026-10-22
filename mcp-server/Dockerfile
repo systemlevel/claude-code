@@ -1,4 +1,4 @@
-FROM node:22-slim AS build
+FROM node:22.23.4-slim AS build
 WORKDIR /app
 
 # Copy full repo (src/ is needed at runtime for the MCP explorer)
@@ -9,7 +9,7 @@ WORKDIR /app/mcp-server
 RUN npm ci && npm run build
 
 # ---------------------------------------------------------------------------
-FROM node:22-slim
+FROM node:22.23.4-slim
 WORKDIR /app
 
 # Copy built MCP server and source code it explores
